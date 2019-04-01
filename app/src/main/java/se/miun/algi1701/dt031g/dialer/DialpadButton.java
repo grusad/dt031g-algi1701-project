@@ -2,7 +2,9 @@ package se.miun.algi1701.dt031g.dialer;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.media.SoundPool;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -20,7 +22,7 @@ public class DialpadButton extends LinearLayout {
         init(context, attrs);
     }
 
-    private void init(Context context, AttributeSet attrs){
+    private void init(final Context context, AttributeSet attrs){
         inflate(context, R.layout.dialpad_button_view, this);
 
 
@@ -51,6 +53,8 @@ public class DialpadButton extends LinearLayout {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
+                Log.d("Debug", "PRESSED");
+
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
 
                     v.startAnimation(fadeOutAnimation);
@@ -60,6 +64,7 @@ public class DialpadButton extends LinearLayout {
 
                 if(event.getAction() == MotionEvent.ACTION_UP){
                     v.startAnimation(fadeInAnimation);
+                    SoundPlayer.getInstance(context).playSound(DialpadButton.this);
                 }
 
                 return false;
@@ -106,4 +111,6 @@ public class DialpadButton extends LinearLayout {
         super.setOnTouchListener(l);
 
     }
+
+
 }
