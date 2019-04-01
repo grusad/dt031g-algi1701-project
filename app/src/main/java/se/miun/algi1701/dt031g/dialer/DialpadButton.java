@@ -71,8 +71,9 @@ public class DialpadButton extends LinearLayout {
             }
         });
 
-
     }
+
+
 
     private void initComponents() {
         title = (TextView) findViewById(R.id.title);

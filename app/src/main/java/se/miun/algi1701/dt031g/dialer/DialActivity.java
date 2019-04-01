@@ -12,6 +12,10 @@ public class DialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dialpad = new Dialpad(this);
+
+        // Needed to load the sounds within the private constructor.
+        SoundPlayer.getInstance(this);
+
         setContentView(dialpad);
 
     }
