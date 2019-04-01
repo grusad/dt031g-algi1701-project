@@ -18,7 +18,7 @@ public class SoundPlayer {
     private Map<String, Integer> ids = new HashMap<>();
 
     private SoundPlayer(Context context) {
-        pool = new SoundPool(12, AudioManager.STREAM_MUSIC, 0);
+        pool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
         ids.put("0", pool.load(context, R.raw.zero, 1));
         ids.put("1", pool.load(context, R.raw.one, 1));
         ids.put("2", pool.load(context, R.raw.two, 1));
