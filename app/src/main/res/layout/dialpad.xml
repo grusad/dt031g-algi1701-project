@@ -6,6 +6,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:freezesText="true"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@id/button_1"
+        app:layout_constraintEnd_toStartOf="@id/dial_button"
+        app:layout_constraintHorizontal_weight="8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/dial_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/ic_call_black_24dp"
+        app:layout_constraintStart_toEndOf="@id/display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/backspace_button"
+        app:layout_constraintHorizontal_weight="2"
+        />
+
+    <ImageButton
+        android:id="@+id/backspace_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/ic_backspace_black_24dp"
+        app:layout_constraintStart_toEndOf="@id/display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dial_button"
+        app:layout_constraintBottom_toTopOf="@id/button_3"
+        app:layout_constraintHorizontal_weight="2"
+
+        />
 
     <se.miun.algi1701.dt031g.dialer.DialpadButton
         android:id="@+id/button_1"
@@ -15,7 +52,7 @@
         app:title="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_2"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/display"
         app:layout_constraintBottom_toTopOf="@id/button_4"
         />
 
@@ -27,7 +64,7 @@
         app:title="2"
         app:layout_constraintStart_toEndOf="@id/button_1"
         app:layout_constraintEnd_toStartOf="@+id/button_3"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/display"
         app:layout_constraintBottom_toTopOf="@id/button_5"
         />
 
@@ -39,7 +76,7 @@
         app:title="3"
         app:layout_constraintStart_toEndOf="@id/button_2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/display"
         app:layout_constraintBottom_toTopOf="@id/button_6"
 
         />
