@@ -82,13 +82,13 @@ public class DialActivity extends AppCompatActivity {
                         SoundPlayer.getInstance().loadSounds(Environment.getExternalStorageDirectory() + "/Dialer/Voices/mamacita_us");
                     }
                     else{
-                        Toast.makeText(this, "No directory with data exists", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.no_dir_err, Toast.LENGTH_SHORT).show();
                     }
 
                 }
                 else{
                     // Permission denied!
-                    Toast.makeText(this, "Permission denied to read the external storage", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.no_read_ex_storage, Toast.LENGTH_SHORT).show();
                 }
 
                 break;
@@ -106,7 +106,7 @@ public class DialActivity extends AppCompatActivity {
                 }
                 else{
                     // Permission denied!
-                    Toast.makeText(this, "Permission denied to make call from phone", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.call_err, Toast.LENGTH_SHORT).show();
                 }
 
                 break;

@@ -51,15 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                new AlertDialog.Builder(MainActivity.this).setTitle("About").setMessage(
-                        "This app is supposed to mimic the keypad on a phone. The app will consist of activities to:\n" +
-                                "- Enter numbers to dial\n" +
-                                "- See previously dialed numbers\n" +
-                                "- Change the keypad settings\n" +
-                                "Sho on a Map where previous calls are dialed from"
-
-
-                )
+                new AlertDialog.Builder(MainActivity.this).setTitle(R.string.about).setMessage(R.string.about_text)
 
                         // A null listener allows the button to dismiss the dialog and take no further action.
                         .setNegativeButton(android.R.string.ok, null)
