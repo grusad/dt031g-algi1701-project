@@ -24,6 +24,16 @@ public class DialpadButton extends LinearLayout {
         init(context, attrs);
     }
 
+    public DialpadButton(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context, attrs);
+    }
+
+    public DialpadButton(Context context) {
+        super(context);
+        init(context, null);
+    }
+
     private void init(final Context context, AttributeSet attrs){
         inflate(context, R.layout.dialpad_button_view, this);
 

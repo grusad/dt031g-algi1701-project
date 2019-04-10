@@ -22,6 +22,11 @@ public class Dialpad extends ConstraintLayout {
         init(context, null);
     }
 
+    public Dialpad(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context, attrs);
+    }
+
     private void init(Context context, AttributeSet attrs){
         inflate(context, R.layout.dialpad, this);
         initComponents();
