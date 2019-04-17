@@ -6,6 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@id/display"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/display"
         android:layout_width="0dp"
@@ -17,7 +29,7 @@
         app:layout_constraintEnd_toStartOf="@id/dial_button"
         app:layout_constraintHorizontal_weight="8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <ImageButton
         android:id="@+id/dial_button"
@@ -26,7 +38,7 @@
         app:srcCompat="@drawable/ic_call_black_24dp"
         app:layout_constraintStart_toEndOf="@id/display"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toTopOf="@id/backspace_button"
         app:layout_constraintHorizontal_weight="2"
         />
@@ -195,8 +207,6 @@
         app:layout_constraintTop_toBottomOf="@id/button_9"
         app:layout_constraintBottom_toBottomOf="parent"
         />
-
-
 
 
 
