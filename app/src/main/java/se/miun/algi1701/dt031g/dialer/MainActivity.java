@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,6 +58,17 @@ public class MainActivity extends AppCompatActivity {
                         .setNegativeButton(android.R.string.ok, null)
                         .show();
 
+            }
+        });
+
+        Button webButton = (Button) findViewById(R.id.web);
+        webButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WebActivity.class);
+                intent.putExtra("destinationFolder", Constants.EXTERNAL_STORAGE_PATH);
+                intent.putExtra("url", "http://dt031g.programvaruteknik.nu/dialpad/sounds/");
+                startActivity(intent);
             }
         });
 

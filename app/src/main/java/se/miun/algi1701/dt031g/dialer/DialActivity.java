@@ -79,7 +79,7 @@ public class DialActivity extends AppCompatActivity {
                     //Permission granted!
 
                     if(hasExternalFolder()){
-                        SoundPlayer.getInstance().loadSounds(Environment.getExternalStorageDirectory() + "/Dialer/Voices/mamacita_us");
+                        SoundPlayer.getInstance().loadSounds(Constants.EXTERNAL_STORAGE_PATH + "/mamacita_us");
                     }
                     else{
                         Toast.makeText(this, R.string.no_dir_err, Toast.LENGTH_SHORT).show();
@@ -118,7 +118,7 @@ public class DialActivity extends AppCompatActivity {
     }
 
     private boolean hasExternalFolder(){
-        File file = new File(Environment.getExternalStorageDirectory() + "/Dialer/Voices");
+        File file = new File(Constants.EXTERNAL_STORAGE_PATH);
         return file.exists() && file.isDirectory();
     }
 
