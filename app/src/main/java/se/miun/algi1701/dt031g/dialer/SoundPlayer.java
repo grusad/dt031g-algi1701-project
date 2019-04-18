@@ -3,6 +3,7 @@ package se.miun.algi1701.dt031g.dialer;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.util.Log;
 
 import java.util.HashMap;
 import java.util.Map;

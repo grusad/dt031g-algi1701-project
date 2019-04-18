@@ -7,4 +7,11 @@
         android:title="@string/pref_title_store_numbers" />
 
 
+    <ListPreference
+        android:key="voice_sounds"
+        android:title="Voices"
+        android:entries="@array/list_preference_entries"
+        android:entryValues="@array/list_preference_entry_values"
+        />
+
 </PreferenceScreen>
