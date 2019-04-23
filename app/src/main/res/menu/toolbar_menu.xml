@@ -9,4 +9,10 @@
         android:id="@+id/settings_item"
         android:title="Settings"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/web_item"
+        android:title="Download"
+        app:showAsAction="never"
+        />
 </menu>

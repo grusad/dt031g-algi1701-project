@@ -73,6 +73,13 @@ public class DialActivity extends AppCompatActivity {
                 startActivity(new Intent(DialActivity.this, SettingsActivity.class));
                 break;
             }
+            case R.id.web_item: {
+                Intent intent = new Intent(DialActivity.this, WebActivity.class);
+                intent.putExtra("destinationFolder", Constants.EXTERNAL_STORAGE_PATH);
+                intent.putExtra("url", Constants.DOWNLOAD_URL);
+                startActivity(intent);
+                break;
+            }
         }
         return true;
     }
@@ -124,7 +131,10 @@ public class DialActivity extends AppCompatActivity {
                     //Permission granted!
 
                     if(hasExternalFolder()){
-                        SoundPlayer.getInstance().loadSounds(Constants.EXTERNAL_STORAGE_PATH + "/mamacita_us");
+                        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(DialActivity.this);
+                        String path = sharedPreferences.getString("voice_sounds", null);
+                        if(path.isEmpty()) return;
+                        SoundPlayer.getInstance().loadSounds(path);
                     }
                     else{
                         Toast.makeText(this, R.string.no_dir_err, Toast.LENGTH_SHORT).show();

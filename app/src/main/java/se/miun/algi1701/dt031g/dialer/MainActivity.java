@@ -1,9 +1,11 @@
 package se.miun.algi1701.dt031g.dialer;
 
 import android.content.Intent;
+import android.preference.ListPreference;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -67,11 +69,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WebActivity.class);
                 intent.putExtra("destinationFolder", Constants.EXTERNAL_STORAGE_PATH);
-                intent.putExtra("url", "http://dt031g.programvaruteknik.nu/dialpad/sounds/");
+                intent.putExtra("url", Constants.DOWNLOAD_URL);
                 startActivity(intent);
             }
         });
-
 
     }
 

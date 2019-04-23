@@ -161,7 +161,7 @@ public class WebActivity extends AppCompatActivity {
             progressDialog.hide();
             progressDialog = null;
 
-            ZIP.decompress(destPath + "/" + fileName, destPath + "/" + fileName.substring(0, fileName.length() - 4));
+            ZIP.decompress(destPath + "/" + fileName, destPath);
 
 
         }

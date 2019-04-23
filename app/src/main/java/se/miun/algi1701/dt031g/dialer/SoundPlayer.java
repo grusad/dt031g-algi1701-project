@@ -16,6 +16,7 @@ public class SoundPlayer {
     private Map<String, Integer> ids = new HashMap<>();
 
     private SoundPlayer() {
+
         pool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
     }
 
@@ -41,9 +42,10 @@ public class SoundPlayer {
     }
 
     public void loadSounds(String path){
-        if(!ids.isEmpty()){
-            pool.release();
-        }
+        Log.d("test", path);
+        pool.release();
+        pool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
+        ids = new HashMap<>();
 
         ids.put("0", pool.load(path + "/zero.mp3", 1));
         ids.put("1", pool.load(path + "/one.mp3", 1));
