@@ -1,5 +1,6 @@
 package se.miun.algi1701.dt031g.dialer;
 
+import android.database.Cursor;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -7,7 +8,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -22,6 +25,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
 
@@ -39,8 +43,41 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+
+
+        CallDBHandler dbHandler = new CallDBHandler(this);
+        Cursor cursor = dbHandler.getRecords();
+
+        cursor.moveToFirst();
+
+        while (cursor.moveToNext()){
+
+            double lat = Double.parseDouble(cursor.getString(2));
+            double lon = Double.parseDouble(cursor.getString(3));
+
+            LatLng marker = new LatLng(lat, lon);
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(marker);
+            markerOptions.title(cursor.getString(1));
+            markerOptions.snippet(cursor.getString(4));
+            markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker));
+            mMap.addMarker(markerOptions);
+
+            LatLng pos = new LatLng(lat, lon);
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(pos));
+
+        }
+
+
+
+
+
+
     }
+
+
+
+
 }
